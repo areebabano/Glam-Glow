@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+  overflow-x: hidden;
+  padding-top: 220px;
+}
+
+header{
+  background-color:rgb(22, 52, 52);
+  
+}
+
+.navbar__link:hover{
+  color: darkslategray;
+  transition: all 0.4s;
+}
+
+.navbar__link::after{
+  position: absolute;
+  content: "";
+  background-color: darkslategray;
+  height: 3px;
+  width: 100%;
+  bottom: -5px;
+  left: 0;
+  scale: 0;
+  transform-origin: left;
+  transition: all 0.4s;
+}
+
+.navbar__link:hover::after{
+  scale: 1;
+}
+
+.form{
+  background-color: rgb(22, 52, 52);
+  color: white;
+}
+
+.footer{
+  /* background-color: darkslategray; */
+  background-color: rgb(22, 52, 52);
+  color: white;
+}
+
+.btn {
+  background-color:rgb(45, 108, 108); /* light darkslategray */
+  border-radius: 10px;
+  border: none;
+  color: #FFFFFF;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color:rgb(173, 5, 95); 
+}
+
+@keyframes fadeInOut {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.fade-in-out {
+  animation: fadeInOut 3s ease-in-out infinite;
+}
+
+@keyframes colorChange {
+  0% {
+    color: rgb(22, 52, 52); /* Teal */
+  }
+  40% {
+    color: darkslategray; /* Teal remains for a bit longer */
+  }
+  60% {
+    color: #A0AEC0; /* Gray-500 */
+  }
+  100% {
+    color: rgb(22, 52, 52); /* Teal */
+  }
+}
+
+.color-changing {
+  animation: colorChange 3s infinite ease-in-out; /* Adjusted timing and easing */
+}
+
+.glow-text {
+  text-shadow: 0 0 8px rgb(22, 52, 52), 0 0 12px rgb(22, 52, 52);
+}
+
+.prose {
+  max-width: 100%;
+  line-height: 1.75;
+}

@@ -227,10 +227,10 @@ const Sidebar = () => {
         <hr className="border-t border-gray-300 mb-6" />
 
         {/* CTA Button */}
-        <div className="text-center">
+        <div className="flex justify-center items-center">
           <Link
             href="/about"
-            className="py-4 px-8 bg-teal-900 text-white text-sm font-semibold rounded-full hover:bg-pink-600 transition-colors duration-300"
+            className="py-2 px-4 sm:py-3 sm:px-8 bg-teal-900 text-white text-sm font-semibold rounded-full hover:bg-pink-600 transition-colors duration-300 text-center whitespace-nowrap"
           >
             Read More About Us
           </Link>

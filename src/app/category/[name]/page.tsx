@@ -103,19 +103,18 @@
 
 // export default CategoryDetailPage;
 
-
-"use client"
-import React from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { useParams } from 'next/navigation';
-import { categories } from '@/src/app/Data/product';
-import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
+"use client";
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { useParams } from "next/navigation";
+import { categories } from "@/src/app/Data/product";
+import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 
 const CategoryDetailPage = () => {
   const params = useParams();
   const categoryName = params.name;
-  const category = categories.find(cat => cat.name === categoryName);
+  const category = categories.find((cat) => cat.name === categoryName);
 
   if (!category) {
     return <p>Category not found</p>;
@@ -132,21 +131,28 @@ const CategoryDetailPage = () => {
 
   return (
     <div className="p-4 font-serif">
-      <h1 className="text-3xl font-bold mb-6 text-center text-gray-500 ">Curated <span className='text-white fade-in-out glow-text'>{categoryName}</span> Collection</h1>
+      <h1 className="text-3xl font-bold mb-6 text-center text-gray-500 ">
+        Curated{" "}
+        <span className="text-white fade-in-out glow-text">{categoryName}</span>{" "}
+        Collection
+      </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mx-auto max-w-screen-lg">
         {category.products.map((product, index) => (
-          <div key={index} className="border-2 shadow-md hover:scale-95 transition duration-200 ease-in-out container px-4 py-4 border-gray-200 rounded-xl max-w-[400px]">
+          <div
+            key={index}
+            className="border-2 shadow-md hover:scale-95 transition duration-200 ease-in-out container px-4 py-4 border-gray-200 rounded-xl max-w-[400px]"
+          >
             {/* <div> */}
             <Link href={`/product/${product.id}`}>
               <Image
                 src={product.img}
                 alt={product.title}
-                layout='responsive'
+                layout="responsive"
                 width={200}
                 height={300}
                 className="w-full h-auto h-48 w-48 md:h-64 md:w-64 lg:h-80 lg:w-80 rounded-md mb-4"
               />
-              </Link>
+            </Link>
             {/* </div> */}
             <div className="space-y-2 py-2">
               <h2 className="text-lg text-balck font-bold">{product.title}</h2>
@@ -154,7 +160,9 @@ const CategoryDetailPage = () => {
               <div>{genrateRating(product.rating)}</div>
               <div className="font-bold flex gap-4">
                 ${product.price}
-                <del className="text-gray-500 font-normal">${(product.price + 15).toFixed(2)}</del>
+                <del className="text-gray-500 font-normal">
+                  ${(product.price + 15).toFixed(2)}
+                </del>
               </div>
             </div>
           </div>

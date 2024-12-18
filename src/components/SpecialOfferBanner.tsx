@@ -1,5 +1,5 @@
-import React from 'react';
-import Link from 'next/link';
+import React from "react";
+import Link from "next/link";
 
 const SpecialOfferBanner: React.FC = () => {
   return (
@@ -8,10 +8,12 @@ const SpecialOfferBanner: React.FC = () => {
         {/* Text Section */}
         <div className="text-center md:text-left">
           <h2 className="text-4xl font-bold mb-2">
-          ✨ Special Offer – <span className="text-white font-thin">Up to 15% Off!</span>
+            ✨ Special Offer –{" "}
+            <span className="text-white font-thin">Up to 15% Off!</span>
           </h2>
           <p className="text-lg text-gray-100">
-            Shop the latest fashion clothes and accessories for men and women. Don’t miss out!
+            Shop the latest fashion clothes and accessories for men and women.
+            Don’t miss out!
           </p>
         </div>
 
@@ -21,7 +23,7 @@ const SpecialOfferBanner: React.FC = () => {
             href="/categories"
             className="bg-teal-900 text-white px-8 py-4 font-bold rounded-full shadow-lg hover:bg-pink-600 hover:scale-105 transition-transform duration-300"
           >
-             Shop Now
+            Shop Now
           </Link>
         </div>
       </div>
@@ -30,4 +32,3 @@ const SpecialOfferBanner: React.FC = () => {
 };
 
 export default SpecialOfferBanner;
-

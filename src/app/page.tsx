@@ -10,7 +10,7 @@ import SpecialOfferBanner from '../components/SpecialOfferBanner'
 const Home = () => {
   return (
     <main>
-      <div>
+      <div >
       <HeroSection />
       <SpecialOfferBanner/>
       </div>

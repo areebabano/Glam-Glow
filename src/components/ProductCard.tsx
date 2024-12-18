@@ -69,8 +69,11 @@ const ProductCard: React.FC<Product> = ({
     }
   };
   return (
-     <div className="border-2 shadow-md font-serif hover:scale-105 transition duration-300 ease-in-out container px-4 py-4 border-gray-200 rounded-xl max-w-[400px] h-[480px] flex flex-col">
-      <div className="flex-grow" style={{ position: 'relative', width: '100%', height: '300px' }}>
+    <div className="border-2 shadow-md font-serif hover:scale-105 transition duration-300 ease-in-out container px-4 py-4 border-gray-200 rounded-xl max-w-[400px] h-[480px] flex flex-col">
+      <div
+        className="flex-grow"
+        style={{ position: "relative", width: "100%", height: "300px" }}
+      >
         <Image
           className="rounded-md mb-4"
           src={img}
@@ -79,7 +82,7 @@ const ProductCard: React.FC<Product> = ({
           // width={200}
           // height={300}
           fill
-          style={{ objectFit: 'cover' }}
+          style={{ objectFit: "cover" }}
         />
       </div>
 
@@ -88,8 +91,8 @@ const ProductCard: React.FC<Product> = ({
         {/* <p className="text-gray-500 max-w-[150px]">{description}</p> */}
         <div>{genrateRating(rating)}</div>
         <div className="font-bold flex gap-4">
-            ${price}
-            <del className="text-gray-500 font-normal">${price + 15}.00</del>
+          ${price}
+          <del className="text-gray-500 font-normal">${price + 15}.00</del>
         </div>
       </div>
     </div>

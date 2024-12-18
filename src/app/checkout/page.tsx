@@ -1,5 +1,5 @@
 "use client";
-import React, { useState , useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -11,12 +11,12 @@ import { FiCheckCircle } from "react-icons/fi";
 import { TiShoppingCart } from "react-icons/ti";
 import { LuShoppingBasket } from "react-icons/lu";
 
-// Define the checkout component 
+// Define the checkout component
 const Checkout = () => {
   const router = useRouter();
   // Initialize AOS animations
-  useEffect(()=> {
-    AOS.init({duration: 1000}); 
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
   }, []);
   // Section and box-shadow styling for uniform look
   const sectionStyle =
@@ -25,7 +25,7 @@ const Checkout = () => {
     boxShadow: "0 4px 10px rgba(22, 52, 52)",
   };
 
-  // State for formData, errors and success message 
+  // State for formData, errors and success message
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
@@ -58,26 +58,29 @@ const Checkout = () => {
       }));
     } else if (name === "cardExpiry") {
       // automatically format the card expiry field
-      let formattedValue = value.replace(/\//g, ""); 
+      let formattedValue = value.replace(/\//g, "");
       if (formattedValue.length > 2) {
         formattedValue = `${formattedValue.slice(0, 2)}/${formattedValue.slice(
           2
         )}`;
-    }
-    setFormData((prevData) => ({
-      ...prevData,
-      cardExpiry: formattedValue,
-    }));
-  } else if (name === "cardCVC") {
-    if (value.length > 3) {
-      setFormData((prevData) => ({ ...prevData, cardCVC: value.slice(0, 3) }));
+      }
+      setFormData((prevData) => ({
+        ...prevData,
+        cardExpiry: formattedValue,
+      }));
+    } else if (name === "cardCVC") {
+      if (value.length > 3) {
+        setFormData((prevData) => ({
+          ...prevData,
+          cardCVC: value.slice(0, 3),
+        }));
+      } else {
+        setFormData((prevData) => ({ ...prevData, [name]: value }));
+      }
     } else {
       setFormData((prevData) => ({ ...prevData, [name]: value }));
     }
-  } else {
-    setFormData((prevData) => ({ ...prevData, [name]: value }));
-  }
-    };
+  };
 
   // Validate form fields and submit form
   const handleSubmit = (e: React.FormEvent) => {
@@ -85,7 +88,7 @@ const Checkout = () => {
     // error handling
     const newErrors: { [key: string]: string } = {};
 
-    // field validations 
+    // field validations
     if (!formData.name) newErrors.name = "Name is required.";
     if (!formData.email) {
       newErrors.email = "Email is required.";
@@ -93,11 +96,11 @@ const Checkout = () => {
       newErrors.email = "Email format is invalid.";
     }
 
-if (!formData.phoneNumber) {
-  newErrors.phoneNumber = "Phone number is required.";
-} else if (!/^\d{10}$/.test(formData.phoneNumber)) {
-  newErrors.phoneNumber = "Phone number must be 10 digits.";
-}
+    if (!formData.phoneNumber) {
+      newErrors.phoneNumber = "Phone number is required.";
+    } else if (!/^\d{10}$/.test(formData.phoneNumber)) {
+      newErrors.phoneNumber = "Phone number must be 10 digits.";
+    }
     if (!formData.cardNumber) newErrors.cardNumber = "Card number is required.";
     else {
       const cardNumberNoSpaces = formData.cardNumber.replace(/\s/g, "");
@@ -126,7 +129,7 @@ if (!formData.phoneNumber) {
       newErrors.cardCVC = "CVC must be 3 digits.";
     }
 
-    // Show success message if no errors 
+    // Show success message if no errors
     if (Object.keys(newErrors).length === 0) {
       setSuccessMessage("Checkout Successfully! Thank you for your purchase.");
       // Clear form fields
@@ -242,7 +245,6 @@ if (!formData.phoneNumber) {
                 placeholder="Enter your postal code"
                 error={errors.postalCode}
               />
-              
             </div>
           </section>
           <section
@@ -252,7 +254,7 @@ if (!formData.phoneNumber) {
           >
             <h2 className="text-2xl font-bold mb-4">Billing Information</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <InputField
+              <InputField
                 label="Card Number"
                 type="text"
                 name="cardNumber"
@@ -281,27 +283,21 @@ if (!formData.phoneNumber) {
               />
             </div>
             <div className="flex justify-center gap-4 mt-6">
-            <button
-              type="button"
-              onClick={() => router.push("/")} // Redirect to the home page
-              className="flex justify-center items-center btn w-full p-2 font-bold text-white rounded gap-2"
-            >
-              Continue Shopping
-              <LuShoppingBasket
-              className="w-6 h-6"
-            />
-            </button>
-            <button
-            type="submit"
-            className="flex justify-center items-center btn w-full p-2 font-bold text-white rounded gap-2"
-          >
-            
-            Place Order
-            <FiCheckCircle
-              className="w-6 h-6"
-            />
-          </button>
-
+              <button
+                type="button"
+                onClick={() => router.push("/")} // Redirect to the home page
+                className="flex justify-center items-center btn w-full p-2 font-bold text-white rounded gap-2"
+              >
+                Continue Shopping
+                <LuShoppingBasket className="w-6 h-6" />
+              </button>
+              <button
+                type="submit"
+                className="flex justify-center items-center btn w-full p-2 font-bold text-white rounded gap-2"
+              >
+                Place Order
+                <FiCheckCircle className="w-6 h-6" />
+              </button>
             </div>
           </section>
         </form>

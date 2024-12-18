@@ -1,5 +1,5 @@
-"use client"
-import React , {useEffect} from "react";
+"use client";
+import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import TeamSection from "../../components/TeamSection";
@@ -14,29 +14,36 @@ import { HiMiniShoppingBag, HiMiniUserGroup } from "react-icons/hi2";
 import { IoShieldCheckmark } from "react-icons/io5";
 
 const About = () => {
-  useEffect(()=> {
-    AOS.init({duration: 1000}); // Initialize AOS with duration of 1000
+  useEffect(() => {
+    AOS.init({ duration: 1000 }); // Initialize AOS with duration of 1000
   }, []);
 
   // Section styling
   const sectionStyle =
     "bg-gray-100 p-6 rounded-lg shadow-md mb-12 transition-shadow duration-300 hover:shadow-lg";
-  
+
   // Box shadow for section
   const shadowStyle = {
     boxShadow: "0 4px 10px rgba(22, 52, 52)",
   };
   return (
     <div className="bg-white text-gray-800 font-serif">
-      <div className="container mx-auto px-4 py-12" >
-        <h1 className="text-4xl font-bold mb-8 text-white flex items-center glow-text" data-aos= "fade-right">
+      <div className="container mx-auto px-4 py-12">
+        <h1
+          className="text-4xl font-bold mb-8 text-white flex items-center glow-text"
+          data-aos="fade-right"
+        >
           <HiMiniShoppingBag
             className="w-8 h-8 text-teal-900 mr-2"
             aria-hidden="true"
           />
           Who We Are
         </h1>
-        <section className={`${sectionStyle}`} style={shadowStyle} data-aos= "fade-up">
+        <section
+          className={`${sectionStyle}`}
+          style={shadowStyle}
+          data-aos="fade-up"
+        >
           <h2 className="text-2xl font-bold flex items-center">
             <FaGlobe
               className="w-6 h-6 text-teal-900 mr-2"
@@ -45,13 +52,17 @@ const About = () => {
             Company Overview
           </h2>
           <p className="mt-4 leading-relaxed">
-            At <b>Glam Glow,</b> we are dedicated to providing stylish and affordable
-            fashion for everyone. Founded in 2024, we have transformed the
-            fashion landscape by offering quality products that empower personal
-            expression.
+            At <b>Glam Glow,</b> we are dedicated to providing stylish and
+            affordable fashion for everyone. Founded in 2024, we have
+            transformed the fashion landscape by offering quality products that
+            empower personal expression.
           </p>
         </section>
-        <section className={`${sectionStyle}`} style={shadowStyle} data-aos= "fade-up">
+        <section
+          className={`${sectionStyle}`}
+          style={shadowStyle}
+          data-aos="fade-up"
+        >
           <h2 className="text-2xl font-bold flex items-center">
             <FaLightbulb
               className="w-6 h-6 text-teal-900 mr-2"
@@ -60,13 +71,17 @@ const About = () => {
             Mission Statement
           </h2>
           <p className="mt-4 leading-relaxed">
-            At <b>Glam Glow</b>, we aim to redefine fashion by offering a diverse
-            selection of trendy clothing and accessories that cater to all
-            styles and occasions. We believe that everyone deserves to feel
+            At <b>Glam Glow</b>, we aim to redefine fashion by offering a
+            diverse selection of trendy clothing and accessories that cater to
+            all styles and occasions. We believe that everyone deserves to feel
             confident and beautiful in what they wear.
           </p>
         </section>
-        <section className={`${sectionStyle}`} style={shadowStyle} data-aos= "fade-up">
+        <section
+          className={`${sectionStyle}`}
+          style={shadowStyle}
+          data-aos="fade-up"
+        >
           <h2 className="text-2xl font-bold flex items-center mb-2">
             <IoShieldCheckmark
               className="w-6 h-6 text-teal-900 mr-2"
@@ -90,7 +105,11 @@ const About = () => {
             </li>
           </ul>
         </section>
-        <section className={`${sectionStyle}`} style={shadowStyle} data-aos= "fade-up">
+        <section
+          className={`${sectionStyle}`}
+          style={shadowStyle}
+          data-aos="fade-up"
+        >
           <h2 className="text-2xl font-bold flex items-center">
             <HiMiniUserGroup
               className="w-6 h-6 text-teal-900 mr-2"
@@ -104,14 +123,18 @@ const About = () => {
           </p>
           <TeamSection />
         </section>
-        <section className={`${sectionStyle}`} style={shadowStyle} data-aos= "fade-up">
+        <section
+          className={`${sectionStyle}`}
+          style={shadowStyle}
+          data-aos="fade-up"
+        >
           <h2 className="text-2xl font-bold flex items-center">
             <FaGift className="w-6 h-6 text-teal-900 mr-2" aria-hidden="true" />
             What We Offer
           </h2>
           <p className="mt-4 leading-relaxed">
-            <b>Glam Glow</b> provides a wide range of products for both men and women,
-            including:
+            <b>Glam Glow</b> provides a wide range of products for both men and
+            women, including:
           </p>
           <ul className="list-disc list-inside mt-4">
             <li>
@@ -121,7 +144,11 @@ const About = () => {
             <li>Accessories: Elevate your look with our unique accessories.</li>
           </ul>
         </section>
-        <section className={`${sectionStyle}`} style={shadowStyle} data-aos= "fade-up">
+        <section
+          className={`${sectionStyle}`}
+          style={shadowStyle}
+          data-aos="fade-up"
+        >
           <h2 className="text-2xl font-bold flex items-center">
             <FaRegThumbsUp
               className="w-6 h-6 text-teal-900 mr-2"
@@ -135,7 +162,11 @@ const About = () => {
             satisfaction guarantee on all our products.
           </p>
         </section>
-        <section className={`${sectionStyle}`} style={shadowStyle} data-aos= "fade-up">
+        <section
+          className={`${sectionStyle}`}
+          style={shadowStyle}
+          data-aos="fade-up"
+        >
           <h2 className="text-2xl font-bold flex items-center">
             <FaCanadianMapleLeaf
               className="w-6 h-6 text-teal-900 mr-2"

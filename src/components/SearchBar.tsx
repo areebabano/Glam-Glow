@@ -57,21 +57,32 @@ const SearchBar: React.FC = () => {
     <div className="relative w-full mb-2 sm:w-[300px] md:w-[60%] lg:w-[500px] mx-auto font-serif">
       {/* Search bar */}
       <div className="flex items-center py-3 rounded-full p-2 bg-white focus-within:ring-2 focus-within:ring-teal-500 transition-shadow duration-300 ease-in-out">
-        <input
+        {/* <input
           type="text"
           value={searchQuery}
           onChange={handleInputChange}
           onKeyPress={handleKeyPress}
           className="ml-2 outline-none w-full"
           placeholder="Enter product name...."
+        /> */}
+        <input
+          type="text"
+          value={searchQuery}
+          onChange={handleInputChange}
+          onKeyPress={handleKeyPress}
+          className="ml-2 outline-none w-full text-sm sm:text-base lg:text-md" // Adjusted font size
+          placeholder="Enter product name...."
         />
+
         <FaSearch
           onClick={() => {
             if (searchQuery.trim()) {
-              router.push(`/search?query=${encodeURIComponent(searchQuery.trim())}`);
+              router.push(
+                `/search?query=${encodeURIComponent(searchQuery.trim())}`
+              );
             }
           }}
-          className="text-teal-900 cursor-pointer mr-2"
+          className="text-gray-400 cursor-pointer mr-2"
           size="20"
         />
       </div>

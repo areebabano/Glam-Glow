@@ -38,7 +38,6 @@ const Header: React.FC = () => {
     }
   };
 
-  
 
   const toggleSearchBar = () => setIsSearchOpen(!isSearchOpen);
   const toggleHamburger = () => setIsHamburgerOpen(!isHamburgerOpen);

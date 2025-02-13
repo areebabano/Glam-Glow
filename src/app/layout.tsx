@@ -11,6 +11,7 @@ import "slick-carousel/slick/slick-theme.css";
 import FeedbackSection from "../components/FeedbackSection";
 import Footer from "../components/Footer";
 import { FavouriteProvider } from "./context/FavouriteContext";
+import Provider from "../components/Provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,6 +24,7 @@ export default function RootLayout({children} : {children: React.ReactNode}) {
   return (
     <html lang="en">
       <body className={inter.className}>
+        <Provider>
         <CartProvider>
          <FavouriteProvider>
          <header>
@@ -45,6 +47,7 @@ export default function RootLayout({children} : {children: React.ReactNode}) {
           </footer>
          </FavouriteProvider>
         </CartProvider>
+        </Provider>
       </body>
     </html>
   );

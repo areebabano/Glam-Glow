@@ -188,3 +188,8 @@ export interface Blog {
     blog: Blog;
   }
   
+ export interface User {
+    id: string;
+    email: string;
+    password: string;
+  }

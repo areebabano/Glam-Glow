@@ -5,7 +5,7 @@ import Image from "next/image";
 import { BiUser } from "react-icons/bi";
 import { FiHeart } from "react-icons/fi";
 import { GrCart } from "react-icons/gr";
-import { FaHome, FaBlog, FaPhoneAlt, FaInfoCircle } from "react-icons/fa";
+import { FaHome, FaBlog, FaPhoneAlt, FaInfoCircle, FaUserCircle } from "react-icons/fa";
 import { BiCategory } from "react-icons/bi";
 import { useRouter } from "next/navigation";
 import CartModal from "./CartModal";
@@ -19,11 +19,26 @@ import { newArrival } from "../app/Data/newarrival";
 import { BsSearch } from "react-icons/bs";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoClose } from "react-icons/io5";
+import { signIn, signOut, useSession } from "next-auth/react";
+import UserMenu from "./UserMenu";
 
 const Header: React.FC = () => {
   const router = useRouter();
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
+  const { data: session } = useSession();
+  const [isOpen, setIsOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const handleUserIconClick = () => {
+    if (!session) {
+      signIn(); // If user is not logged in, redirect to sign in
+    } else {
+      setDropdownOpen(!dropdownOpen); // Else, toggle dropdown
+    }
+  };
+
+  
 
   const toggleSearchBar = () => setIsSearchOpen(!isSearchOpen);
   const toggleHamburger = () => setIsHamburgerOpen(!isHamburgerOpen);
@@ -87,7 +102,34 @@ const Header: React.FC = () => {
   
         {/* Icons Section (Desktop only) */}
         <div className="hidden lg:flex gap-6 text-white text-[35px] space-x-2 pr-14">
-          <BiUser />
+          {/* <BiUser /> */}
+          <UserMenu/>
+          {/* <button onClick={handleUserIconClick} className="flex items-center">
+          {session?.user?.image ? (
+            <Image
+              src={userImage}
+              alt="User"
+              width={110}
+              height={110}
+              className="rounded-full border border-white"
+            />
+          ) : (
+            <FaUserCircle className="w-10 h-10" />
+          )}
+        </button> */}
+
+        {/* Dropdown Menu
+        {dropdownOpen && session && (
+          <div className="absolute top-full right-0 mt-2 w-40 bg-white text-black rounded shadow-md">
+            <p className="px-4 py-2 text-gray-700 border-b">{userName}</p>
+            <button
+              onClick={() => signOut()}
+              className="w-full text-left px-4 py-2 hover:bg-gray-200"
+            >
+              Logout
+            </button>
+          </div>
+        )} */}
           {/* Heart Icon */}
           <div className="relative">
             <FiHeart onClick={openFavouriteModal} className="cursor-pointer" />
